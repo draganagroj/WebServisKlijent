@@ -1,0 +1,17 @@
+language: java
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "yoXwdcpnCUdHDulsX4cfDkbAUCZr53GkfFp1sz0eZ7XK90V5/ts7hUSnXOEZdasgUsPCLIw1k8AZRag4JBM2TnY4Su/UEzuqu/vLSkM638do+1AxPqhoEL+GtKEhitKgo5xBGmVoWLv/1YCbr4j3b49Mg6v0CPkRPh+oOjVXTMUldo6nvgIZmCTLOGgLeO9WPGhj2ZT1pcUot5Uw6SpIjkDinFv4mU+GxB5skIHtw5C82G5kmay9a1mZ0OswPcrliAYm23rZadkeQK7zweBBGiIYI3zRuwwr12DTQKhCaFwlz2vlL144gJb3dEFrDInAgSx4HMjuunlHtds/L9Fp6dU199ARLFAxYlqBOaK3KpxRGN9+FLpANHOBkB+N4KoZGLH4mFjFbecWZ3/SLuQB0IIfiP38iWjYIfh7w0m0S//SpD6c9qUslquGmeO2OXeVn7wx+0azGNSlxUbBATb58NFkyb5Ya1UxJoTeUOxugs3ZuN6z2G8LiuhRf4I/cZAmSnFlnyq9XRJFGu78mxZ+yAENf7CwrwOznWVJ6Jw7hm/RAXN1Zcb1iQqxQhfhceSaUsHGHvKoTGwbOeDuVkPg+2r7mx4OhZhYbNhk6mtaWhwm4ID01KnXR6SK9hemY9BxQJN3y7MtWpSUPjIuTa0ukW+45vqnNIVzgucbMCed0WA="
+
+addons:
+  coverity_scan:
+    project:
+      name: "draganagroj/WebServisKlijent"
+      description: "Build submitted via Travis CI"
+    notification_email: groj.dragana@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: master
